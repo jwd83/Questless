@@ -2,18 +2,19 @@ from Character import Character
 from Weapon import Weapon
 import time
 
-PRINT_LEVEL = 0
+VERBOSITY = 3
+SIMULATIONS = 100
 
 def w(level, s):
-    if (level <= PRINT_LEVEL):
+    if (level <= VERBOSITY):
         print(s)
 
 def run_sim():
-    bob = Character('bob', stamina=20, strength=5, dexterity=5)
-    jim = Character('jim', stamina=5, strength=20, dexterity=5)
+    bob = Character('bob', stamina=15, strength=5, dexterity=5)
+    jim = Character('jim', stamina=5, strength=15, dexterity=5)
 
     bob.weapon = Weapon(10, 15, '1h sword')
-    jim.weapon = Weapon(15, 25, '2h sword')
+    jim.weapon = Weapon(10, 15, '2h sword')
 
     rounds = 0
 
@@ -21,24 +22,24 @@ def run_sim():
 
         rounds += 1
 
-        w(2,f"Round #{rounds}:")
+        w(3,f"Round #{rounds}:")
 
-        w(2,"{} {}/{}".format(bob.name, bob.hp_current, bob.hp_max()))
-        w(2,"{} {}/{}".format(jim.name, jim.hp_current, jim.hp_max()))
+        w(3,"{} {}/{}".format(bob.name, bob.hp_current, bob.hp_max()))
+        w(3,"{} {}/{}".format(jim.name, jim.hp_current, jim.hp_max()))
 
         if bob.hits(jim):
             bob_damage = bob.weapon.roll_weapon_damage(bob.strength)
             jim.hp_current -= bob_damage
-            w(2,"{} hits {} for {} damage".format(bob.name, jim.name, bob_damage))
+            w(3,"{} hits {} for {} damage".format(bob.name, jim.name, bob_damage))
         else:
-            w(2,"{} missed {}".format(bob.name, jim.name))
+            w(3,"{} missed {}".format(bob.name, jim.name))
 
         if jim.hits(bob):
             jim_damage = jim.weapon.roll_weapon_damage(jim.strength)
             bob.hp_current -= jim_damage
-            w(2,"{} hits {} for {} damage".format(jim.name, bob.name, jim_damage))
+            w(3,"{} hits {} for {} damage".format(jim.name, bob.name, jim_damage))
         else:
-            w(2,"{} missed {}".format(jim.name, bob.name))
+            w(3,"{} missed {}".format(jim.name, bob.name))
 
     w(2,f"Rounds #{rounds}:")
     w(2,"{} {}/{}".format(bob.name, bob.hp_current, bob.hp_max()))
@@ -79,7 +80,7 @@ def run_sim_profile(iterations = 100):
 
 def main():
     start_time = time.time()
-    run_sim_profile(10000)
+    run_sim_profile(SIMULATIONS)
     end_time = time.time()
     w(0, "Runtime: {}".format(round(end_time - start_time,3)))
 
