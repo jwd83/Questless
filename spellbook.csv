@@ -1,0 +1,29 @@
+name,turns_cast_time,turns_cooldown,potency,element,weapon_types,target_types
+
+attack,0,0,100,physical,1h sword|2h sword|1h dagger|1h axe|2h axe|1h mace|2h mace|2h staff|2h libram|2h spear|1h spear|2h bow,single
+block,0,0,0,physical,1h shield|2h shield,self
+evade,0,0,0,physical,any,self
+
+scorch,0,1,250,fire,staff,single
+fireball,1,0,700,fire,staff,single
+flame wave,0,0,400,fire,staff,column
+comet,3,3,1200,fire,staff,squad
+meteor,4,10,2500,fire,staff,all
+
+ice lance,0,2,200,ice,staff,single
+frostbite,1,3,400,ice,staff,single
+glacial spike,2,0,600,ice,staff,column
+snow storm,3,5,
+blizzard,4,10,1200,ice,staff,all
+
+lightning bolt,1,2,500,lightning,staff,single
+forked lightning,2,3,1000,lightning,staff,column
+chain lightning,1,2,1000,lightning,staff,squad
+
+flash of light,0,15,500,healing,libram,single
+cure 1,1,0,400,healing,libram,single
+cure 2,1,4,1000,healing,libram,single
+cure 3,2,4,1000,healing,libram,single
+
+item,0,0,0,physical,any,single
+

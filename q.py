@@ -14,7 +14,7 @@ def run_sim():
     jim = Character('jim', stamina=5, strength=15, dexterity=5)
 
     bob.weapon = Weapon(10, 15, '1h sword')
-    jim.weapon = Weapon(10, 15, '2h sword')
+    jim.weapon = Weapon(10, 15, '1h sword')
 
     rounds = 0
 
